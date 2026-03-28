@@ -4,13 +4,14 @@ import shutil
 import logging
 from datetime import datetime
 import time
+import config
 
 # --- CONFIGURATION ---
-FOLDERS_TO_CLEAN = ["output_csv", "scans/done", "scans/failed"]
-RETENTION_DAYS = 30
+FOLDERS_TO_CLEAN = [config.OUTPUT_FOLDER, config.DONE_FOLDER, config.FAILED_FOLDER]
+RETENTION_DAYS = config.RETENTION_DAYS
 
-RECIPES_FOLDER = "recipes"
-ROOT_FOLDER = "." # This is the main \munchbox_ocr folder
+RECIPES_FOLDER = os.path.dirname(config.RECIPES_NAME)
+ROOT_FOLDER = config.BASE_DIR # This is the main \munchbox_ocr folder
 
 logger = logging.getLogger("MunchBox")
 
